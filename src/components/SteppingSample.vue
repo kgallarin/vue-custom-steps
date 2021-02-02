@@ -1,9 +1,11 @@
 <template>
   <step-wrapper 
-    finishButtonText="Finish"
+    finish-button-text="Finish"
     :next-button-text="['Next']"
     class="wrapper"
   >
+  
+    <!-- page one -->
     <steps-tab
       title="Hello I am Step 1"
       :before-change="() => validateStep('sampleStepOne')"
@@ -25,6 +27,7 @@
       />
     </steps-tab>
     
+    <!-- page three -->
     <steps-tab
       title="Hello I am Step 3"
       :before-change="() => validateStep('sampleStepThree')"
