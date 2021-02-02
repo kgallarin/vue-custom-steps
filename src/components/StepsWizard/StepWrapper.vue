@@ -11,31 +11,33 @@
 
         <!-- actions -->
         <div :class="[
-          {'d-flex steps-nav-container': true}
+          {'steps-nav-container': true},
+          {'justify-content-end': activeTabIndex === 0},
+          {'justify-content-between': activeTabIndex > 0}
         ]">
           <slot name="footer" :next-tab="nextTab" :prev-tab="prevTab">
-            <!-- <div  v-if="!isSubmitting"> -->
               <Button variant="light"
                 v-if="activeTabIndex > 0"
                 @click="prevTab()"
-                class="custom-steps-button btn-previous"
+                class="custom-steps-button btn-previous wizard-tab-link"
               >
                 {{ prevButtonText }}
               </Button>
-            <!-- </div> -->
 
             <div>
-              <button variant="light"
+              <button 
+                v-if="activeTabIndex < tabCount - 1"
+                variant="light"
                 @click="nextTab()"
                 class="btn-next custom-steps-button"
               >
-                <!-- {{ nextButtonText.length > 1 ? nextButtonText[activeTabIndex] : nextButtonText[0] }} -->
                 {{ nextButtonText.length > 1 ? nextButtonText[activeTabIndex] : nextButtonText[0] }}
               </button>
-              <!-- <button variant="light"  v-else class="custom-steps-button md-success" :click="() => nextTab()">
+              <button variant="light"  v-else class="custom-steps-button md-success wizard-tab-link" :click="() => nextTab()">
                   {{ finishButtonText }}
-              </button> -->
+              </button>
             </div>
+            
           </slot>
         </div>
 
@@ -202,11 +204,15 @@ export default {
   .steps-nav-container {
     text-align: center;
     display: flex;
-    justify-content: space-between;
     max-width: 760px;
     margin: 0 auto;
   }
-  
+  .justify-content-between {
+    justify-content: space-between;
+  }
+  .justify-content-end {
+    justify-content: flex-end;
+  }
   button {
     display: inline-block;
   }

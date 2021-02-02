@@ -11,19 +11,12 @@
       <!-- tab header -->
       <div :class="[{'steps--header d-flex': true}]">
 
-        <!-- <a href="#" v-if="hasLeftClose" class="header-left-close" @click="() => { this.$EventBus.$emit('closePop') }">
-          (*__*)
-        </a> -->
-
         <p class="title">
           <strong>{{ title }}</strong>
         </p>
 
-        <!-- <a href="#" v-if="hasClose" @click="() => { this.$EventBus.$emit('closePop') }">
-          (*___*)
-        </a> -->
-
-        <!-- <p v-if="tabCount > 0 && hasCounter" class="steps-header-counter"> {{ studio ? activeTab + 2 : activeTab + 1 }} / {{ studio ? tabCount + 1 : tabCount }}</p> -->
+        <p v-if="tabCount > 0 && hasCounter" class="steps-header-counter"> {{ studio ? activeTab + 2 : activeTab + 1 }} / {{ studio ? tabCount + 1 : tabCount }}</p>
+        
       </div>
       <slot></slot>
     </div>
@@ -67,3 +60,34 @@ export default {
   computed: {}
 };
 </script>
+
+<style>
+.tab-pane {
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  
+  -webkit-animation-delay: .3s;
+  animation-delay: .3s;
+  -webkit-animation-delay: .3s;
+  animation-delay: .3s;
+  
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+</style>
