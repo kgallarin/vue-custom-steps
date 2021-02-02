@@ -6,17 +6,14 @@
       :aria-hidden="!active"
       :aria-labelledby="`step-${tabId}`"
       :class="{ 'active show': active }"
-      v-show="active"
+      v-if="active"
     >
       <!-- tab header -->
       <div :class="[{'steps--header d-flex': true}]">
 
         <p class="title">
           <strong>{{ title }}</strong>
-        </p>
-
-        <p v-if="tabCount > 0 && hasCounter" class="steps-header-counter"> {{ studio ? activeTab + 2 : activeTab + 1 }} / {{ studio ? tabCount + 1 : tabCount }}</p>
-        
+        </p>        
       </div>
       <slot></slot>
     </div>

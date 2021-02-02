@@ -19,7 +19,7 @@
               <Button variant="light"
                 v-if="activeTabIndex > 0"
                 @click="prevTab()"
-                class="custom-steps-button btn-previous wizard-tab-link"
+                class="custom-steps-button btn-previous wizard-tab-link wizard-tab-link"
               >
                 {{ prevButtonText }}
               </Button>
@@ -29,11 +29,11 @@
                 v-if="activeTabIndex < tabCount - 1"
                 variant="light"
                 @click="nextTab()"
-                class="btn-next custom-steps-button"
+                class="btn-next custom-steps-button wizard-tab-link"
               >
                 {{ nextButtonText.length > 1 ? nextButtonText[activeTabIndex] : nextButtonText[0] }}
               </button>
-              <button variant="light"  v-else class="custom-steps-button md-success wizard-tab-link" :click="() => nextTab()">
+              <button variant="light"  v-else class="custom-steps-button md-success wizard-tab-link" @click="nextTab()">
                   {{ finishButtonText }}
               </button>
             </div>
@@ -139,10 +139,7 @@ export default {
       }
     },
     async nextTab() {
-      console.log(this.activeTabIndex)
-      console.log(this.tabCount)
       let isValid = await this.validate();
-      console.log(isValid)
       if (isValid && this.activeTabIndex < this.tabCount - 1) {
         this.activeTabIndex++;
       }

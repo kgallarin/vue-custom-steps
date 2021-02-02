@@ -27,11 +27,11 @@
     
     <steps-tab
       title="Hello I am Step 3"
-      :before-change="() => validateStep('sampleStepTwo')"
+      :before-change="() => validateStep('sampleStepThree')"
     >
       <page-three 
-        @on-validated="onStepValidated"
-        ref="sampleStepTwo" 
+        @on-validated="onStepComplete"
+        ref="sampleStepThree" 
       />
     </steps-tab>
     
@@ -56,11 +56,15 @@ export default {
   },
   methods: {
     validateStep(ref) {
-      console.log(this.$refs[ref].validate())
+      // console.log('vasd')
       return this.$refs[ref].validate()
     },
     onStepValidated(validated) {
+      // console.log(validated)
       return validated
+    },
+    onStepComplete() {
+      console.log('asd')
     }
   }
 }

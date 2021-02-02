@@ -1,5 +1,5 @@
 <template>
-  <div class="page-one" ref="pageOne">
+  <div class="page" ref="pageOne">
     Hello I am first step.
   </div>
 </template>
@@ -11,10 +11,9 @@ export default {
     validate() {      
       return true
     }
+  },
+  mounted() {
+    this.$emit('on-validated', true)
   }
 }
 </script>
-
-<style>
-
-</style>
