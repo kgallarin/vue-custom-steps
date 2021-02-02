@@ -64,7 +64,7 @@ export default {
       return validated
     },
     onStepComplete() {
-      console.log('asd')
+      alert('Step completed!')
     }
   }
 }
