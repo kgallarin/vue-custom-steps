@@ -10,7 +10,7 @@ export default {
   name: 'PageThree',
   methods: {
     validate() {      
-      return true
+      this.$emit("on-validated", true)
     },
     emitValidated() {
       this.$emit('on-validated', true)
