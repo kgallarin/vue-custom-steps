@@ -16,7 +16,7 @@
           {'justify-content-between': activeTabIndex > 0}
         ]">
           <slot name="footer" :next-tab="nextTab" :prev-tab="prevTab">
-              <Button variant="light"
+              <Button 
                 v-if="activeTabIndex > 0"
                 @click="prevTab()"
                 class="custom-steps-button btn-previous wizard-tab-link wizard-tab-link"
@@ -27,7 +27,6 @@
             <div>
               <button 
                 v-if="activeTabIndex < tabCount - 1"
-                variant="light"
                 @click="nextTab()"
                 class="btn-next custom-steps-button wizard-tab-link"
               >
@@ -212,5 +211,28 @@ export default {
   }
   button {
     display: inline-block;
+  }
+  
+  .wizard-tab-link {
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    
+    -webkit-animation-delay: .3s;
+    animation-delay: .3s;
+    -webkit-animation-delay: .3s;
+    animation-delay: .3s;
+    
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+  }
+  
+  .custom-steps-container {
+    padding: 50px 20px;
+    height: 100%;
+    background: #eee;
   }
 </style>
